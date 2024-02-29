@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Survey</title>
+  </head>
+  <body>
+    <h1 id="title">Heavy Metal Survey</h1>
+    <p id="description">Answer some questions about this music genre</p>
+    <form id="survey-form">
+      <label id="name-label">Name<input id="name" type="text" placeholder="Enter your name" required /></label>
+      <label id="email-label">Email<input id="email" type="email" placeholder="Enter your Email" required /></label>
+      <label id="number-label">Age (optional)<input id="number" type="number" placeholder="Age" min=1 max=120 /></label>
+      <p>You've heard this genre before?</p>
+      <label><input type="radio" name="radio" value="yes" />Yes</label>
+      <label><input type="radio" name="radio" value="no" />No</label>
+      <label>If yes, how much do you like it?
+        <select id="dropdown">
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </label>
+      <p>What subgenres are you familiar with?</p>
+      <label><input type="checkbox" name="check" value="heavy-metal" />Heavy Metal</label>
+      <label><input type="checkbox" name="check" value="thrash-metal" />Thrash Metal</label>
+      <label><input type="checkbox" name="check" value="glam-metal" />Glam Metal</label>
+      <label><input type="checkbox" name="check" value="nu-metal" />Nu Metal</label>
+      <label><input type="checkbox" name="check" value="power-metal" />Power Metal</label>
+      <label><input type="checkbox" name="check" value="folk-metal" />Folk Metal</label>
+      <label><input type="checkbox" name="check" value="deth-metal" />Deth Metal</label>
+      <label><input type="checkbox" name="check" value="black-metal" />Black Metal</label>
+      <label>Which are your favorite bands?
+        <textarea></textarea>
+      </label>
+      <input id="submit" type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

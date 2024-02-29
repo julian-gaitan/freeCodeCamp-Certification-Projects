@@ -1,0 +1,67 @@
+* {
+  /* outline: 1px solid red; */
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #222;
+  color: #fff;
+  font-family: Impact, sans-serif;
+  font-size: 20px;
+}
+
+h1, p {
+  text-align: center;
+}
+
+h1 {
+  margin: 1em;
+}
+
+form {
+  background-color: #000;
+  border: 0.5em ridge white;
+  margin: 1rem auto;
+  max-width: 750px;
+  min-width: 450px;
+  padding: 1em 2.5em;
+  width: 80%;
+}
+
+label, input[type="submit"] {
+  display: block;
+  margin: 0.75em 0;
+}
+
+label:has(input[type="radio"], input[type="checkbox"]) {
+  display: inline-block;
+  margin: 0.25em 0;
+  width: 49%;
+}
+
+label ~ p {
+  margin: 0;
+  text-align: start;
+}
+
+input, select, textarea {
+  width: 100%;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  width: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="submit"] {
+  font-family: inheret;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0.5em auto;
+  padding: 0.5em;
+  text-transform: uppercase;
+  width: 50%;
+}

@@ -3,69 +3,104 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Technical Documentation Page</title>
+    <title>HTTP Overview</title>
   </head>
   <body>
     <nav id="navbar">
-      <header>Technical Documentation</header>
+      <header>HTTP Overview</header>
       <ul>
-        <li><a class="nav-link" href="#Topic_1">Topic 1</a></li>
-        <li><a class="nav-link" href="#Topic_2">Topic 2</a></li>
-        <li><a class="nav-link" href="#Topic_3">Topic 3</a></li>
-        <li><a class="nav-link" href="#Topic_4">Topic 4</a></li>
-        <li><a class="nav-link" href="#Topic_5">Topic 5</a></li>
+        <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+        <li><a class="nav-link" href="#Components_of_HTTP-based_systems">Components of HTTP-based systems</a></li>
+        <li><a class="nav-link" href="#What_can_be_controlled_by_HTTP">What can be controlled by HTTP</a></li>
+        <li><a class="nav-link" href="#HTTP_flow">HTTP flow</a></li>
+        <li><a class="nav-link" href="#HTTP_Messages">HTTP Messages</a></li>
+        <li><a class="nav-link" href="#Reference">Reference</a></li>
       </ul>
     </nav>
     <main id="main-doc">
-      <section id="Topic_1" class="main-section">
-        <header>Topic 1</header>
-        <p>Paragraph 1</p>
-        <p>Paragraph 2</p>
-        <code>Code example 1</code>
+      <section id="Introduction" class="main-section">
+        <header>Introduction</header>
+        <p>HTTP is a protocol for fetching resources such as HTML documents. It is the foundation of any data exchange on the Web and it is a client-server protocol, which means requests are initiated by the recipient, usually the Web browser. A complete document is reconstructed from the different sub-documents fetched, for instance, text, layout description, images, videos, scripts, and more. </p>
+        <p>Clients and servers communicate by exchanging individual messages (as opposed to a stream of data). The messages sent by the client, usually a Web browser, are called <em>requests</em> and the messages sent by the server as an answer are called <em>responses</em>. </p>
+      </section>
+      <section id="Components_of_HTTP-based_systems" class="main-section">
+        <header>Components of HTTP-based systems</header>
+        <p>HTTP is a client-server protocol: requests are sent by one entity, the user-agent (or a proxy on behalf of it). Most of the time the user-agent is a Web browser, but it can be anything, for example, a robot that crawls the Web to populate and maintain a search engine index.</p>
+        <p>Each individual request is sent to a server, which handles it and provides an answer called the <em>response</em>. Between the client and the server there are numerous entities, collectively called proxies, which perform different operations and act as gateways or caches, for example. </p>
+        <h3>Client: the user-agent</h3>
+        <p>The <em>user-agent</em> is any tool that acts on behalf of the user. This role is primarily performed by the Web browser, but it may also be performed by programs used by engineers and Web developers to debug their applications.</p>
+        <h3>The Web server</h3>
+        <p>On the opposite side of the communication channel is the server, which serves the document as requested by the client. A server appears as only a single machine virtually; but it may actually be a collection of servers sharing the load (load balancing), or other software (such as caches, a database server, or e-commerce servers), totally or partially generating the document on demand.</p>
+        <h3>Proxies</h3>
+        <p>Between the Web browser and the server, numerous computers and machines relay the HTTP messages. Due to the layered structure of the Web stack, most of these operate at the transport, network or physical levels, becoming transparent at the HTTP layer and potentially having a significant impact on performance. Those operating at the application layers are generally called <strong>proxies</strong>. These can be transparent, forwarding on the requests they receive without altering them in any way, or non-transparent, in which case they will change the request in some way before passing it along to the server. Proxies may perform numerous functions:</p>
         <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
+          <li>caching (the cache can be public or private, like the browser cache)</li>
+          <li>filtering (like an antivirus scan or parental controls)</li>
+          <li>load balancing (to allow multiple servers to serve different requests)</li>
+          <li>authentication (to control access to different resources)</li>
+          <li>logging (allowing the storage of historical information)</li>
         </ul>
       </section>
-      <section id="Topic_2" class="main-section">
-        <header>Topic 2</header>
-        <p>Paragraph 3</p>
-        <p>Paragraph 4</p>
-        <code>Code example 2</code>
+      <section id="What_can_be_controlled_by_HTTP" class="main-section">
+        <header>What can be controlled by HTTP</header>
+        <p>This extensible nature of HTTP has, over time, allowed for more control and functionality of the Web. Cache and authentication methods were functions handled early in HTTP history. The ability to relax the <em>origin constraint</em>, by contrast, was only added in the 2010s. </p>
+        <p>Here is a list of common features controllable with HTTP:</p>
         <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
+          <li><em>Caching</em>: How documents are cached can be controlled by HTTP. The server can instruct proxies and clients about what to cache and for how long. The client can instruct intermediate cache proxies to ignore the stored document.</li>
+          <li><em>Relaxing the origin constraint</em>: To prevent snooping and other privacy invasions, Web browsers enforce strict separation between websites. Only pages from the same origin can access all the information of a Web page. Though such a constraint is a burden to the server, HTTP headers can relax this strict separation on the server side, allowing a document to become a patchwork of information sourced from different domains; there could even be security-related reasons to do so.</li>
+          <li><em>Authentication</em>: Some pages may be protected so that only specific users can access them. Basic authentication may be provided by HTTP, either using the WWW-Authenticate and similar headers, or by setting a specific session using HTTP cookies.</li>
+          <li><em>Proxy and tunneling</em>: Servers or clients are often located on intranets and hide their true IP address from other computers. HTTP requests then go through proxies to cross this network barrier. Not all proxies are HTTP proxies. The SOCKS protocol, for example, operates at a lower level. Other protocols, like ftp, can be handled by these proxies.</li>
+          <li><em>Sessions</em>: Using HTTP cookies allows you to link requests with the state of the server. This creates sessions, despite basic HTTP being a state-less protocol. This is useful not only for e-commerce shopping baskets, but also for any site allowing user configuration of the output.</li>
         </ul>
       </section>
-      <section id="Topic_3" class="main-section">
-        <header>Topic 3</header>
-        <p>Paragraph 5</p>
-        <p>Paragraph 6</p>
-        <code>Code example 3</code>
-        <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
+      <section id="HTTP_flow" class="main-section">
+        <header>HTTP flow</header>
+        <p>When a client wants to communicate with a server, either the final server or an intermediate proxy, it performs the following steps:</p>
+        <ol>
+          <li>Open a TCP connection: The TCP connection is used to send a request, or several, and receive an answer. The client may open a new connection, reuse an existing connection, or open several TCP connections to the servers.</li>
+          <li>Send an HTTP message: HTTP messages (before HTTP/2) are human-readable. With HTTP/2, these simple messages are encapsulated in frames, making them impossible to read directly, but the principle remains the same. For example:
+          <code class="block-code">
+            GET / HTTP/1.1<br />
+            Host: developer.mozilla.org<br />
+            Accept-Language: fr<br />
+          </code>
+          </li>
+          <li>Read the response sent by the server, such as:
+            <code class="block-code">
+              HTTP/1.1 200 OK<br />
+              Date: Sat, 09 Oct 2010 14:28:02 GMT<br />
+              Server: Apache<br />
+              Last-Modified: Tue, 01 Dec 2009 20:18:22 GMT<br />
+              ETag: "51142bc1-7449-479b075b2891b"<br />
+              Accept-Ranges: bytes<br />
+              Content-Length: 29769<br />
+              Content-Type: text/html<br />
+              <br />
+              &lt;!DOCTYPE html&gt;… (here come the 29769 bytes of the requested web page)
+            </code>
+          </li>
+          <li>Close or reuse the connection for further requests.</li>
+        </ol>
+        <p>If HTTP pipelining is activated, several requests can be sent without waiting for the first response to be fully received. HTTP pipelining has proven difficult to implement in existing networks, where old pieces of software coexist with modern versions. HTTP pipelining has been superseded in HTTP/2 with more robust multiplexing requests within a frame.</p>
         </ul>
       </section>
-      <section id="Topic_4" class="main-section">
-        <header>Topic 4</header>
-        <p>Paragraph 7</p>
-        <p>Paragraph 8</p>
-        <code>Code example 4</code>
+      <section id="HTTP_Messages" class="main-section">
+        <header>HTTP Messages</header>
+        <p>HTTP messages, as defined in HTTP/1.1 and earlier, are human-readable. In HTTP/2, these messages are embedded into a binary structure, a frame, allowing optimizations like compression of headers and multiplexing. Even if only part of the original HTTP message is sent in this version of HTTP, the semantics of each message is unchanged and the client reconstitutes (virtually) the original HTTP/1.1 request. It is therefore useful to comprehend HTTP/2 messages in the HTTP/1.1 format.</p>
+        <p>There are two types of HTTP messages, requests and responses, each with its own format.</p>
+        <h3>Requests</h3>
+        <p>Requests consist of the following elements:</p>
         <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
+          <li>An HTTP method, usually a verb like <code class="inline-code">GET</code>, <code class="inline-code">POST</code>, or a noun like <code class="inline-code">OPTIONS</code> or <code class="inline-code">HEAD</code> that defines the operation the client wants to perform. Typically, a client wants to fetch a resource (using GET) or post the value of an HTML form (using <code class="inline-code">POST</code>), though more operations may be needed in other cases.</li>
+          <li>The path of the resource to fetch; the URL of the resource stripped from elements that are obvious from the context, for example without the protocol (<code class="inline-code">http://</code>), the domain (here, <code class="inline-code">developer.mozilla.org</code>), or the TCP port (here, <code class="inline-code">80</code>).</li>
+          <li>The version of the HTTP protocol.</li>
+          <li>Optional headers that convey additional information for the servers.</li>
+          <li>A body, for some methods like <code class="inline-code">POST</code>, similar to those in responses, which contain the resource sent.</li>
         </ul>
       </section>
-      <section id="Topic_5" class="main-section">
-        <header>Topic 5</header>
-        <p>Paragraph 9</p>
-        <p>Paragraph 10</p>
-        <code>Code example 5</code>
-        <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
-        </ul>
+      <section id="Reference" class="main-section">
+        <header>Reference</header>
+        <p>All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP" target="_blank">MDN</a></p>
       </section>
     </main>
   </body>

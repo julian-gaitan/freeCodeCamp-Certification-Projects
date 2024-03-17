@@ -1,12 +1,74 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* outline: 1px solid red; */
+}
+
+:root {
+  --navbar-height: 80px;
+  --max-content-width: 1200px;
+}
+
+html {
+  font-family: Tahoma, sans-serif;
+  font-size: 125%;
+}
+
+body {
+  background-color: #eee;
+  padding: var(--navbar-height) 0 0 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: inherit;
+  font-weight: inherit;
+}
+
+#main {
+  width: 80%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  background-color: #ddd;
+  width: 100%;
+  height: var(--navbar-height);
+  padding: 0 max(10%, (100vw - var(--max-content-width)) / 2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#header-banner {
+  flex: 1 0;
+  height: calc(100% - 0.5rem);
+  display: flex;
+  align-items: center;
+}
+
+#header-title {
+  margin: 0 1rem;
+}
+
 #header-img {
-  flex: 0 0;
+  height: 100%;
 }
 
 #nav-bar {
   flex: 1 1;
 }
 
-nav ul {
+#nav-bar ul {
   list-style: none;
   display: flex;
   padding: 0;
@@ -14,41 +76,183 @@ nav ul {
   width: fit-content;
 }
 
-nav ul li {
+#nav-bar li {
   margin-left: 1rem;
 }
 
-body {
-  margin: 50px 0 0 0;
+#nav-bar a:hover {
+  text-decoration: underline;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  background-color: #ccc;
-  width: 100%;
+section {
+  margin-top: calc(-1 * var(--navbar-height));
+  margin-left: -10vw;
+  margin-right: -10vw;
+  padding: calc(var(--navbar-height) + 1.5rem) 10vw 1.5rem;
+  background-image: linear-gradient(
+    transparent var(--navbar-height), 
+    #fff8f8 var(--navbar-height), 
+    #fff8e8 100%);
+}
+
+section:nth-child(even) {
+  background-image: linear-gradient(
+    transparent var(--navbar-height), 
+    #fff8e8 var(--navbar-height), 
+    #fff8f8 100%);
+}
+
+#Features ul {
+  width: 86%;
+  margin: 0 auto;
+  padding: 0;
+  list-style-position: inside;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: justify;
 }
 
-#Section_1, #Section_2, #Section_3 {
-  padding-top: 50px;
-  margin-top: -50px;
-  /* outline: 1px solid red; */
+#Features li {
+  width: 50%;
+  margin-bottom: 0.5rem;
 }
 
-footer {
-  margin-bottom: 100vh;
+#fruit-container {
+  width: 86%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  justify-content: center;
 }
 
-@media (max-width: 600px) {
+.fruit-info {
+  border: 1px solid black;
+  width: calc(33% - 2rem/3);
+}
+
+.fruit-info > *:first-child {
+  background-color: #bbb;
+  padding: 0.5rem 0;
+}
+
+.fruit-info ul {
+  list-style: none;
+}
+
+.fruit-info li {
+  margin: 0.5rem 0;
+  font-size: 0.75rem;
+}
+
+.fruit-info a {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  width: fit-content;
+  font-size: 0.8rem;
+}
+
+#banana a {
+  background-color: #ffa;
+}
+
+#apple a {
+  background-color: #faa;
+}
+
+#grapes a {
+  background-color: #daf;
+}
+
+#Subscribe form {
+  margin-top: 1rem;
+}
+
+#Subscribe input[type="submit"] {
+  margin-top: 1rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+#footer {
+  padding: 1rem max(10%, (100vw - var(--max-content-width)) / 2);
+  background-color: #ccc;
+  text-align: right;
+  font-size: 0.8rem;
+}
+
+#footer ul {
+  list-style: none;
+  display: flex;
+  margin: 0 0 0 auto;
+  width: fit-content;
+}
+
+#footer li {
+  margin-left: 1rem;
+}
+
+#footer p {
+  margin-top: 0.5rem;
+  color: #666;
+  font-weight: bold;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --navbar-height: 160px;
+  }
+
+  #header {
+    flex-direction: column;
+  }
+
+  #header-banner {
+    height: calc(50%);
+  }
+
+  #nav-bar {
+    display: flex;
+    align-items: center;
+  }
+
+  #main {
+    width: 96%;
+  }
+
+  #header {
+    padding: 0 2%;
+  }
+
+  #Features ul {
+    width: 96%;
+  }
+
+  #Features li {
+    width: 96%;
+  }
+
+  #fruit-container {
+    width: 80%;
+    column-gap: 0;
+    row-gap: 1rem;
+  }
+
+  .fruit-info {
+    width: 75%;
+  }
+
   #video {
     width: 100%;
   }
-  
-  #form {
-    display: flex;
-    flex-direction: column;
+
+  #footer {
+    padding: 1rem 2%;
   }
 }

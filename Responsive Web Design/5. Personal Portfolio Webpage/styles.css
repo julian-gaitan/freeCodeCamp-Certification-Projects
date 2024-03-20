@@ -1,0 +1,33 @@
+:root {
+  --navbar-height: 80px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* outline: 1px solid red; */
+}
+
+body {
+  background-color: #ccc;
+}
+
+section {
+  padding: var(--navbar-height) 0 0 0;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+}
+
+#welcome-section {
+  height: 100vh;
+}
+
+@media (max-width: 720px) {
+  body {
+    background-color: #aaa;
+  }
+}

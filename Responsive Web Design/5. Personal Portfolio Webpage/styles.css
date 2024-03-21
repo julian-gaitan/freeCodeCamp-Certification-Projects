@@ -112,7 +112,11 @@ a, a:link, a:visited, a:hover, a:active {
   --avatar-filter: grayscale(1);
 }
 
-.about-container > *:first-child:hover {
+.about-container > .about-panel:first-child {
+  flex-direction: row;
+}
+
+.about-container > .about-panel:first-child:hover {
   --avatar-scale: 1.1;
   --avatar-filter: none;
 }
@@ -148,7 +152,7 @@ a, a:link, a:visited, a:hover, a:active {
 #projects-title {
   flex: 0 0;
   font-size: 2rem;
-  padding: 1rem;
+  padding: 1rem 0;
 }
 
 .projects-container {
@@ -209,7 +213,7 @@ a, a:link, a:visited, a:hover, a:active {
 .project-image {
   filter: var(--filter-image);
   transition: filter var(--project-duration) ease-in-out;;
-  width: 250px;
+  width: 15vw;
   aspect-ratio: 1 / 1;
 }
 
@@ -298,8 +302,89 @@ a:hover:has(.project-image)::after {
   font-size: 0.75rem;
 }
 
-@media (max-width: 720px) {
-  body {
-    background-color: #aaa;
+@media (max-width: 1200px) {
+  .about-container > .about-panel:first-child {
+    flex-direction: column;
+  }
+
+  .about-panel:has(> #about-bio) {
+    padding: 1rem 10vw;
+  }
+
+  #about-avatar {
+    width: 20vw;
+  }
+
+  #about-profession {
+    text-align: center;
+  }
+
+  #projects {
+    gap: 0.8em;
+    grid-template-columns: repeat(2, 1fr);
+    width: calc(100% - 0.8em);
+  }
+  
+  .project-image {
+    width: 18vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-panel:has(> #about-bio) {
+    padding: 1rem 6vw;
+  }
+
+  #about-avatar {
+    width: 24vw;
+  }
+  
+  .project-image {
+    width: 22vw;
+  }
+}
+
+@media (max-width: 780px) {
+  .about-panel:has(> #about-bio) {
+    padding: 1rem 2vw;
+  }
+
+  #about-name {
+    font-size: 2.5rem;
+  }
+
+  #about-avatar {
+    width: 28vw;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-panel:has(> #about-bio) {
+    padding: 1rem 0;
+  }
+
+  #about-name {
+    font-size: 2rem;
+  }
+
+  #about-avatar {
+    width: 32vw;
+  }
+
+  #projects-section {
+    flex-wrap: nowrap;
+  }
+
+  #projects-title {
+    font-size: 1.75rem;
+  }
+
+  #projects {
+    gap: 0.2rem;
+    grid-template-columns: 1fr;
+  }
+  
+  .project-image {
+    width: 24vw;
   }
 }

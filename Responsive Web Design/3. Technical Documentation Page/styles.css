@@ -17,7 +17,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 20%;
+  width: calc(300px + (60/900) * (100% - 900px));
   max-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
@@ -30,7 +30,7 @@ body {
 }
 
 #navbar li {
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
 }
 
 #navbar a {
@@ -47,7 +47,7 @@ body {
 }
 
 #main-doc {
-  width: 80%;
+  width: calc(100% - (300px + (60/900) * (100% - 900px)));
   position: absolute;
   top: 0;
   right: 0;

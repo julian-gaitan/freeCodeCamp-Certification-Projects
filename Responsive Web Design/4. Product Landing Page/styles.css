@@ -47,6 +47,7 @@ a, a:link, a:visited, a:hover, a:active {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 10;
 }
 
 #header-banner {
@@ -57,7 +58,9 @@ a, a:link, a:visited, a:hover, a:active {
 }
 
 #header-title {
-  margin: 0 1rem;
+  margin: 0 0 0 1vw;
+  font-size: max(2.5vw, 1.75rem);
+  white-space: nowrap;
 }
 
 #header-img {
@@ -76,7 +79,7 @@ a, a:link, a:visited, a:hover, a:active {
   width: fit-content;
 }
 
-#nav-bar li {
+#nav-bar li:not(:first-child) {
   margin-left: 1rem;
 }
 
@@ -86,8 +89,8 @@ a, a:link, a:visited, a:hover, a:active {
 
 section {
   margin-top: calc(-1 * var(--navbar-height));
-  margin-left: -10vw;
-  margin-right: -10vw;
+  margin-left: -9.9vw;
+  margin-right: -9.9vw;
   padding: calc(var(--navbar-height) + 1.5rem) 10vw 1.5rem;
   background-image: linear-gradient(
     transparent var(--navbar-height), 
@@ -103,22 +106,31 @@ section:nth-child(even) {
 }
 
 #Features ul {
-  width: 86%;
+  width: 90%;
   margin: 0 auto;
   padding: 0;
-  list-style-position: inside;
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
-  text-align: justify;
+  text-align: left;
 }
 
 #Features li {
   width: 50%;
   margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+#Features li::before {
+  content: '\2736';
+  position: absolute;
+  left: 0;
+  top: -3px;
 }
 
 #fruit-container {
-  width: 86%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -204,9 +216,14 @@ section:nth-child(even) {
   font-weight: bold;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 880px) {
   :root {
     --navbar-height: 160px;
+  }
+
+  section {
+    margin-left: -4.9vw;
+    margin-right: -4.9vw;
   }
 
   #header {
@@ -223,19 +240,19 @@ section:nth-child(even) {
   }
 
   #main {
-    width: 96%;
+    width: 90%;
   }
 
   #header {
-    padding: 0 2%;
+    padding: 0 5%;
   }
 
   #Features ul {
-    width: 96%;
+    width: 90%;
   }
 
   #Features li {
-    width: 96%;
+    width: 90%;
   }
 
   #fruit-container {
@@ -249,10 +266,10 @@ section:nth-child(even) {
   }
 
   #video {
-    width: 100%;
+    width: 80%;
   }
 
   #footer {
-    padding: 1rem 2%;
+    padding: 1rem 5%;
   }
 }

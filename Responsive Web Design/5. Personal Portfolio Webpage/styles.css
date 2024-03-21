@@ -143,6 +143,7 @@ a, a:link, a:visited, a:hover, a:active {
 
 #projects-section {
   flex-direction: column;
+  flex-wrap: nowrap;
 }
 
 #about-bio {
@@ -320,9 +321,8 @@ a:hover:has(.project-image)::after {
   }
 
   #projects {
-    gap: 0.8em;
-    grid-template-columns: repeat(2, 1fr);
-    width: calc(100% - 0.8em);
+    gap: 0.75em;
+    width: calc(100% - 0.75em);
   }
   
   .project-image {
@@ -353,6 +353,12 @@ a:hover:has(.project-image)::after {
     font-size: 2.5rem;
   }
 
+  #projects {
+    gap: 0.5rem;
+    width: calc(100% - 0.5em);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   #about-avatar {
     width: 28vw;
   }
@@ -371,20 +377,17 @@ a:hover:has(.project-image)::after {
     width: 32vw;
   }
 
-  #projects-section {
-    flex-wrap: nowrap;
-  }
-
   #projects-title {
     font-size: 1.75rem;
   }
 
   #projects {
-    gap: 0.2rem;
+    gap: 0.25rem;
+    width: calc(100% - 0.25em);
     grid-template-columns: 1fr;
   }
   
   .project-image {
-    width: 24vw;
+    width: 20vw;
   }
 }

@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* outline: 1px solid red; */
+}
+
+:root {
+  font-size: 24px;
+}
+
+body {
+  background-color: skyblue;
+  text-align: center;
+}
+
+#container #header {
+  font-size: 2rem;
+}
+
+#container {
+  width: 60%;
+  height: 60vh;
+  margin: 20vh auto;
+  border: 6px outset cornflowerblue;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+#container > * {
+  display: block;
+  width: 50%;
+  font-size: inherit;
+}
+
+#result  {
+  padding: 0.5rem 0.75rem;
+  border: 2px dotted blue;
+}

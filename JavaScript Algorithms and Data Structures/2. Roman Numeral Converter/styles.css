@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* outline: 1px solid red; */
+  }
+  
+  :root {
+    font-size: 24px;
+  }
+  
+  body {
+    background-color: mediumpurple;
+    text-align: center;
+  }
+  
+  #container {
+    width: 60%;
+    height: 60vh;
+    margin: 20vh auto;
+    border: 6px outset mediumorchid;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #container #header {
+    font-size: 2rem;
+    color: white;
+  }
+
+  #container #number{
+    padding: 0.2rem 0;
+  }
+
+  #container #convert-btn {
+    cursor: pointer;
+    padding: 0.2rem 0;
+  }
+  
+  #container > * {
+    display: block;
+    width: 50%;
+    font-size: inherit;
+  }
+  
+  #output  {
+    padding: 0.5rem 0.75rem;
+    border: 4px dotted mediumorchid;
+    color: white;
+  }

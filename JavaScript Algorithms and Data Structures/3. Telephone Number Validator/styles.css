@@ -57,8 +57,13 @@
     font-size: inherit;
   }
   
-  #output  {
+  #results-div  {
     padding: 0.5rem 0.75rem;
     border: 4px dotted burlywood;
     color: black;
+  }
+
+  #results-div::before {
+    content: "|";
+    color: blanchedalmond;
   }
